@@ -35,8 +35,7 @@ public class ProcessCustomerService implements ProcessCustomerPort {
     // Mapping DTO to Entity
     private CustomerEntity mapToEntity(CustomerInDTO customerInDTO) {
         CustomerEntity customerEntity = new CustomerEntity();
-        customerEntity.setName(customerInDTO.getName());
-        customerEntity.setLastName(customerInDTO.getLastName());
+        customerEntity.setFullName(customerInDTO.getFullName());
         customerEntity.setDocumentId(customerInDTO.getDocumentId());
         return customerEntity;
     }

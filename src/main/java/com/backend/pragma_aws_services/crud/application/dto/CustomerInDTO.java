@@ -7,11 +7,8 @@ import lombok.Data;
 public class CustomerInDTO {
 
     @NotNull(message = "Name is required")
-    private String name;
+    private String fullName;
 
-    @NotNull(message = "Last Name is required")
-    private String lastName;
-
-    @NotNull(message = "Email is required")
+    @NotNull(message = "Document Id is required")
     private String documentId;
 }
