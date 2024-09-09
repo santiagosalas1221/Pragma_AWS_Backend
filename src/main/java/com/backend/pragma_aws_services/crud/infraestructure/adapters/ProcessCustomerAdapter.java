@@ -1,24 +1,24 @@
 package com.backend.pragma_aws_services.crud.infraestructure.adapters;
 
 import com.backend.pragma_aws_services.crud.domain.entities.CustomerEntity;
-import com.backend.pragma_aws_services.crud.domain.repository.JpaCustomerRepository;
-import com.backend.pragma_aws_services.crud.infraestructure.adapters.ports.out.CustomerRespositoryPort;
+import com.backend.pragma_aws_services.crud.domain.repository.DynamoDbCustomerRepository;
+import com.backend.pragma_aws_services.crud.infraestructure.adapters.ports.out.CustomerRepositoryPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProcessCustomerAdapter implements CustomerRespositoryPort {
+public class ProcessCustomerAdapter implements CustomerRepositoryPort {
 
 
-    private final JpaCustomerRepository jpaCustomerRepository;
+    private final DynamoDbCustomerRepository dynamoDbCustomerRepository;
 
     @Autowired
-    public ProcessCustomerAdapter(JpaCustomerRepository jpaCustomerRepository) {
-        this.jpaCustomerRepository = jpaCustomerRepository;
+    public ProcessCustomerAdapter(DynamoDbCustomerRepository dynamoDbCustomerRepository) {
+        this.dynamoDbCustomerRepository = dynamoDbCustomerRepository;
     }
 
     @Override
     public void saveCustomer(CustomerEntity customerEntity) {
-        jpaCustomerRepository.save(customerEntity);
+        dynamoDbCustomerRepository.save(customerEntity);
     }
 }

@@ -1,19 +1,19 @@
 package com.backend.pragma_aws_services.crud.domain.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.Data;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
 
-@Entity
+@DynamoDbBean
 @Data
-@Table(name = "customer")
 public class CustomerEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
+    private String id;
     private String fullName;
     private String documentId;
+
+    @DynamoDbPartitionKey
+    public String getId() {
+        return id;
+    }
 }
