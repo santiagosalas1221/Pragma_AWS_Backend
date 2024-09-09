@@ -1,4 +1,4 @@
-package com.backend.pragma_aws_services.crud.application.utils;
+package com.backend.pragma_aws_services.crud.utils;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
