@@ -6,6 +6,9 @@ import lombok.Data;
 @Data
 public class CustomerInDTO {
 
+    @NotNull(message = "id is required")
+    private String id;
+
     @NotNull(message = "Name is required")
     private String fullName;
 
